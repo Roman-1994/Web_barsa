@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} barcelona_2 {% endblock title %}
+{% block header %} Вторая страница сайта {% endblock header %}
+{% block content %}
+    <h3>{{ header }}</h3>
+    <p>Имя: {{user.name}} Age: {{user.age}}</p>
+    <p>Адрес: ул. {{address.0}}, д. {{address.1}}, кв. {{address.2}}</p>
+    <p>Владеет языками: {{langs.0}}, {{langs.2}}</p>
+{% endblock content %}

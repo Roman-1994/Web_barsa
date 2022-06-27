@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} barcelona_1 {% endblock title %}
+{% block header %} Главная страница {% endblock header %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form }}
+        </table>
+        <input type="submit" value="Отправить">
+    </form>
+{% endblock content %}

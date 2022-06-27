@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} coach {% endblock title %}
+{% block header %} Список тренеров {% endblock header %}
+
+{% block content %}
+    {% if coach_list %}
+        <ul>
+        {% for coach in coach_list %}
+            <li>
+                <a href="{{ coach.get_absolute_url }}">
+                        {{ coach.name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h3>В базе данных нет тренеров</h3>
+    {% endif %}
+{% endblock content %}

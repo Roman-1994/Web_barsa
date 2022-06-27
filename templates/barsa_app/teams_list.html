@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} teams {% endblock title %}
+{% block header %} Список команд {% endblock header %}
+
+{% block content %}
+    {% if teams_list %}
+        <ul>
+        {% for team in teams_list %}
+            <li>
+                <a href="{{ team.get_absolute_url }}">
+                        {{ team.title }}</a>
+                ({{ team.footballer.all }})
+                ({{ team.coach.all }})
+
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h3>В базе данных нет команд</h3>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %} footballer {% endblock title %}
+{% block header %} Список футболистов {% endblock header %}
+
+{% block content %}
+    {% for footbal in footballer %}
+        {{ footbal }}<br>
+    {% endfor %}
+{% endblock content %}

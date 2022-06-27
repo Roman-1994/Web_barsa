@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Билеты</h1>
+    {% if tickets_list %}
+        <ul>
+            {% for ticket in tickets_list %}
+                <li style="{% if ticket.is_overdue %} color: red {% endif %}">
+                    <a href="">
+                    {{ticket.game.team}}</a>
+                    {{ticket.game.date}}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет Заказов.</p>
+    {% endif %}
+{% endblock content %}

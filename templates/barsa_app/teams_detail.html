@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} teams {% endblock title %}
+{% block header %} Подробная информация о команде {% endblock header %}
+
+{% block content %}
+    <h1>Название команды {{ teams.title }} </h1>
+    <h3>Тренерский штаб:</h3>
+    {% for c in teams.coach.all %}
+        <p>{{ c.name }}</p>
+    {% endfor %}
+    <h3>Состав футболистов:</h3>
+    {% for f in teams.footballer.all %}
+        <p>{{ f.name }}</p>
+    {% endfor %}
+{% endblock content %}

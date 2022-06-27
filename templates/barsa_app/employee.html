@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+    <body class="container">
+        <form method="POST" action="create/">
+            {% csrf_token %}
+            <p>
+                <lаbеl>Введите имя</lаbеl><br>
+                <input type="text" name="name" />
+            </p>
+            <p>
+                <lаbеl>Введите телефон</lаbеl><br>
+                <input type="text" name="phone" />
+            </p>
+            <p>
+                <lаbеl>Введите возраст</lаbеl><br>
+                <input type="number" name="age" />
+            </p>
+            <p>
+                <lаbеl>Введите дату рождения</lаbеl><br>
+                <input type="date" name="date_birth" />
+            </p>
+            <input type="submit" vаluе="Сохранить" >
+        </form>
+        {% if employee.count > 0 %}
+            <h2>Сnисок сотрудников</h2>
+            <table>
+                <tr><th>Id</th><th>Имя</th><th>Телефон</th><th>Boзpacт</th><th>Дата_рождения</th></tr>
+                {% for person in employee %}
+                <tr><td>{{ person.id }}</td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.phone }}</td>
+                    <td>{{ person.age }}</td>
+                    <td>{{ person.date_birth }}</td>
+                    <td><a href='update_employee/{{person.id}}/'>Измeнить</a>
+                        <a href='delete_employee/{{person.id}}'>Удaлить</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endif %}
+    </body>
+</html>

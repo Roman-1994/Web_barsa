@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %} contracts {% endblock title %}
+{% block header %} Список контрактов {% endblock header %}
+
+{% block content %}
+    {% if contract_list %}
+        <ul>
+        {% for contract in contract_list %}
+            <li>
+                <a href="{{ contract.get_absolute_url }}">
+                        {{ contract.name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h3>В базе данных нет контрактов</h3>
+    {% endif %}
+{% endblock content %}
