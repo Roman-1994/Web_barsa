@@ -19,6 +19,7 @@ class ContractAdmin(admin.ModelAdmin):
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_post')
+    search_fields = ('name', )
     list_filter = ('post', 'contract')
 
 @admin.register(Footballers)
